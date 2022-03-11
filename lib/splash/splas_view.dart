@@ -20,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    // _toOnbording();
+    _toOnbording();
     _image('assets/image/splash.png');
   }
 
