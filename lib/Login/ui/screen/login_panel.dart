@@ -2,6 +2,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mvp_all/colors/colors_views.dart';
 
+import '../widget/boton_ingresar.dart';
+import '../widget/contrasenna_olvidada.dart';
+import '../widget/register.dart';
+
 class LoginPanel extends StatefulWidget {
   const LoginPanel({Key? key}) : super(key: key);
 
@@ -155,40 +159,9 @@ class _LoginPanelState extends State<LoginPanel> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 185),
-                  child: SizedBox(
-                    height: 50,
-                    width: 350,
-                    child: OutlinedButton(
-                      onPressed: () {},
-                      child: const Text('Ingresar',
-                          style: TextStyle(
-                              color: ColorsViews.background_color,
-                              fontSize: 18)),
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.resolveWith<Color>((states) {
-                          return ColorsViews.buttonColor;
-                        }),
-                        overlayColor: MaterialStateProperty.resolveWith<Color>(
-                          (states) {
-                            if (states.contains(MaterialState.pressed)) {
-                              return Colors.grey;
-                            }
-                            return Colors.transparent;
-                          },
-                        ),
-                        shape:
-                            MaterialStateProperty.resolveWith<OutlinedBorder>(
-                          (_) {
-                            return RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25));
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 185),
+                  child: ButtonIngresar(),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 55, top: 20),
@@ -205,62 +178,6 @@ class _LoginPanelState extends State<LoginPanel> {
           )
         ],
       ),
-    );
-  }
-}
-
-class Registrarse extends StatelessWidget {
-  const Registrarse({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.start,
-      text: TextSpan(
-        children: <InlineSpan>[
-          const TextSpan(
-            text: '¿Todavia no tienes cuenta? ',
-            style: TextStyle(
-              color: ColorsViews.text_subtitle,
-              fontSize: 18,
-            ),
-          ),
-          TextSpan(
-            text: ' Registrate.',
-            style: const TextStyle(
-                color: ColorsViews.bar_color_able, fontSize: 18),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                Navigator.pushNamed(context, '/register_page');
-              },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ContrasennaOlvidada extends StatelessWidget {
-  const ContrasennaOlvidada({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.start,
-      text: TextSpan(children: <InlineSpan>[
-        TextSpan(
-          text: '¿Has olvidado tu contraseña?',
-          style: const TextStyle(
-              color: ColorsViews.bar_color_able,
-              fontSize: 17,
-              fontWeight: FontWeight.bold),
-          recognizer: TapGestureRecognizer()..onTap = () {Navigator.pushNamed(context, '/recover_pass');},
-        ),
-      ]),
     );
   }
 }
