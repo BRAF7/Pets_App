@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import '../colors/colors_views.dart';
+import '../../../colors/colors_views.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({Key? key}) : super(key: key);
@@ -104,8 +103,11 @@ class _OnBoardingState extends State<OnBoarding> {
       height: 40,
       child: OutlinedButton(
         onPressed: () {
-          pagePosition += 1;
-          if (pagePosition < boardingData.length) {
+          
+          if (pagePosition < (boardingData.length - 1)) {
+            pagePosition += 1;
+            print(boardingData.length);
+            print(pagePosition);
             setState(() {
               ContainerBoarding(
                 image: boardingData[pagePosition]['image']!,
@@ -114,6 +116,9 @@ class _OnBoardingState extends State<OnBoarding> {
               );
             });
             _pageController.animateToPage(pagePosition, duration: const Duration(milliseconds: 450), curve: Curves.decelerate);
+          }
+          else {
+            Navigator.pushNamed(context, '/login');
           }
         },
         child: Text(

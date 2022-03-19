@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mvp_all/pages/on_boarding.dart';
+import 'package:mvp_all/Login/ui/screen/login.dart';
+import 'package:mvp_all/Login/ui/screen/login_panel.dart';
+import 'package:mvp_all/OnBoardingPage/ui/screen/on_boarding.dart';
+import 'package:mvp_all/RecuperarContrasenna/ui/screen/recover_pass.dart';
+import 'package:mvp_all/Register/ui/screen/register.dart';
+import 'package:mvp_all/colors/colors_views.dart';
+import 'package:mvp_all/pages/progressView.dart';
 import 'package:mvp_all/splash/splas_view.dart';
 
 void main() {
@@ -17,8 +23,17 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        canvasColor: ColorsViews.background_color,
       ),
-      home: SplashView(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => OnBoarding(),
+        '/login': (context) => const Login(),
+        '/login_panel': (context) => const LoginPanel(),
+        '/register_page': (context) => const RegisterPage(),
+        '/recover_pass': (context) => const RecoverPass(),
+      },
+      // home: SplashView(),
       // home: OnBoarding(),
     );
   }
