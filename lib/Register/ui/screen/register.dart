@@ -12,15 +12,15 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   bool _passwordVisible = false;
+  bool _value = false;
   @override
   void initState() {
     _passwordVisible = false;
+    _value = false;
   }
 
   @override
   Widget build(BuildContext context) {
-    bool _value = false;
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -31,10 +31,10 @@ class _RegisterPageState extends State<RegisterPage> {
             color: ColorsViews.bar_color_able,
           ),
           onPressed: () {
-            Navigator.pushNamed(context, '/login');
+            Navigator.pop(context);
           },
         ),
-        title: const Text('Registrate'),
+        title: const Text('Regístrate'),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(top: 4, bottom: 4, right: 15),
@@ -66,7 +66,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: EdgeInsets.only(
                     top: 10,
                     bottom: 10,
-                    right: 325,
+                    right: 305,
                   ),
                   child: Text(
                     'Nombre',
@@ -77,7 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                  padding: const EdgeInsets.only(left: 25.0, right: 25.0),
                   child: TextFormField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -86,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       filled: true,
                       hintStyle:
                           const TextStyle(color: ColorsViews.text_subtitle),
-                      hintText: "Nombre completos",
+                      hintText: "Nombre completo",
                       fillColor: Colors.white70,
                     ),
                     validator: (value) {
@@ -102,10 +102,10 @@ class _RegisterPageState extends State<RegisterPage> {
                     top: 10,
                     bottom: 10,
                     left: 0,
-                    right: 250,
+                    right: 230,
                   ),
                   child: Text(
-                    'Correo electronico',
+                    'Correo electrónico',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -113,7 +113,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                  padding: const EdgeInsets.only(left: 25.0, right: 25.0),
                   child: TextFormField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -137,7 +137,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: EdgeInsets.only(
                     top: 10,
                     bottom: 10,
-                    right: 300,
+                    right: 280,
                   ),
                   child: Text(
                     'Contraseña',
@@ -148,13 +148,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                  padding: const EdgeInsets.only(left: 25.0, right: 25.0),
                   child: TextFormField(
                     keyboardType: TextInputType.text,
                     obscureText:
                         !_passwordVisible, //This will obscure text dynamically
                     decoration: InputDecoration(
-                      hintText: 'Enter your password',
+                      hintText: 'Contraseña',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -203,7 +203,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       value: _value,
                       onChanged: (v) {
                         setState(() {
-                          _value = v!;
+                          _value = !_value;
+                          print(_value);
                         });
                       },
                     ),
@@ -280,7 +281,7 @@ class iniciar_sesion extends StatelessWidget {
             style: TextStyle(color: ColorsViews.text_subtitle, fontSize: 18),
           ),
           TextSpan(
-            text: ' Iniciar sesion.',
+            text: ' Iniciar sesión.',
             style: const TextStyle(
                 color: ColorsViews.bar_color_able, fontSize: 18),
             recognizer: TapGestureRecognizer()

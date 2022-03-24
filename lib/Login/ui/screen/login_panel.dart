@@ -35,10 +35,10 @@ class _LoginPanelState extends State<LoginPanel> {
             color: ColorsViews.bar_color_able,
           ),
           onPressed: () {
-            Navigator.pushNamed(context, '/login');
+            Navigator.pop(context);
           },
         ),
-        title: const Text('Iniciar sesion'),
+        title: const Text('Iniciar sesión'),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(top: 4, bottom: 4, right: 15),
@@ -52,9 +52,9 @@ class _LoginPanelState extends State<LoginPanel> {
       body: Column(
         children: <Widget>[
           const Padding(
-            padding: EdgeInsets.all(18.0),
+            padding: EdgeInsets.only(top:18.0, right:70, bottom:18),
             child: Text(
-              'Inicia sesion en tu cuenta para continuar',
+              'Inicia sesión en tu cuenta para continuar',
               style: TextStyle(
                 color: Color.fromARGB(255, 117, 113, 113),
                 fontSize: 16,
@@ -71,10 +71,10 @@ class _LoginPanelState extends State<LoginPanel> {
                     top: 10,
                     bottom: 10,
                     left: 0,
-                    right: 250,
+                    right: 230,
                   ),
                   child: Text(
-                    'Correo electronico',
+                    'Correo electrónico',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -82,7 +82,7 @@ class _LoginPanelState extends State<LoginPanel> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                  padding: const EdgeInsets.only(left: 25.0, right: 25.0),
                   child: TextFormField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -91,7 +91,7 @@ class _LoginPanelState extends State<LoginPanel> {
                       filled: true,
                       hintStyle:
                           TextStyle(color: Color.fromARGB(255, 161, 161, 161)),
-                      hintText: "Direccion de correo",
+                      hintText: "Email Adress",
                       fillColor: Colors.white70,
                     ),
                     validator: (value) {
@@ -106,7 +106,7 @@ class _LoginPanelState extends State<LoginPanel> {
                   padding: EdgeInsets.only(
                     top: 10,
                     bottom: 10,
-                    right: 300,
+                    right: 280,
                   ),
                   child: Text(
                     'Contraseña',
@@ -117,13 +117,13 @@ class _LoginPanelState extends State<LoginPanel> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                  padding: const EdgeInsets.only(left: 25.0, right: 25.0),
                   child: TextFormField(
                     keyboardType: TextInputType.text,
                     obscureText:
                         !_passwordVisible, //This will obscure text dynamically
                     decoration: InputDecoration(
-                      hintText: 'Enter your password',
+                      hintText: 'Password',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -152,7 +152,7 @@ class _LoginPanelState extends State<LoginPanel> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 150, top: 15),
+                  padding: const EdgeInsets.only(left: 160, top: 15),
                   child: Row(
                     children: const [
                       Flexible(child: ContrasennaOlvidada()),

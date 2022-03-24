@@ -22,9 +22,9 @@ class Registrarse extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: ' Registrate.',
+            text: ' Regístrate.',
             style: const TextStyle(
-                color: ColorsViews.bar_color_able, fontSize: 18),
+                color: ColorsViews.bar_color_able, fontSize: 18, fontWeight: FontWeight.bold,),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 Navigator.pushNamed(context, '/register_page');

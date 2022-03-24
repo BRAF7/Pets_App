@@ -71,22 +71,25 @@ class _OnBoardingState extends State<OnBoarding> {
                     itemCount: boardingData.length,
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(
-                          boardingData.length,
-                          (index) => _animatedContainer(index),
+                Padding(
+                  padding: const EdgeInsets.only(top:20),
+                  child: Expanded(
+                    flex: 1,
+                    child: Column(
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(
+                            boardingData.length,
+                            (index) => _animatedContainer(index),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 150),
-                        child: _nextButton(),
-                      )
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.only(top: 120, bottom:20),
+                          child: _nextButton(),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],

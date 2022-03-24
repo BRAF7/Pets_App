@@ -95,11 +95,12 @@ class LoginOption extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextButton(
+          padding: const EdgeInsets.only(top: 20),
+          child: Column(children: <Widget>[
+            SizedBox(
+              height: 30,
+              width: 150,
+              child: TextButton(
                 style: TextButton.styleFrom(primary: Colors.red),
                 onPressed: () {},
                 child: const Text(
@@ -109,7 +110,11 @@ class LoginOption extends StatelessWidget {
                   ),
                 ),
               ),
-              TextButton(
+            ),
+            SizedBox(
+              height: 30,
+              width: 150,
+              child: TextButton(
                 style: TextButton.styleFrom(primary: Colors.green[400]),
                 onPressed: () {},
                 child: const Text(
@@ -119,11 +124,23 @@ class LoginOption extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ]),
         ),
+
+        // TextButton(
+        //   style: TextButton.styleFrom(primary: Colors.green[400]),
+        //   onPressed: () {},
+        //   child: const Text(
+        //     'Entrar como vendedor',
+        //     style: TextStyle(
+        //       fontSize: 13,
+        //     ),
+        //   ),
+        // ),
+
         Padding(
-          padding: const EdgeInsets.only(left: 100.0, top: 20),
+          padding: const EdgeInsets.only(left: 100.0, top: 50),
           child: Row(
             children: <Widget>[
               const Text(
@@ -132,10 +149,10 @@ class LoginOption extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context,'/login_panel');
+                  Navigator.pushNamed(context, '/login_panel');
                 },
                 child: const Text(
-                  'Iniciar sesion',
+                  'Iniciar sesión',
                   style: TextStyle(
                     color: Colors.red,
                     fontSize: 13,

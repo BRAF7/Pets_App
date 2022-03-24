@@ -31,10 +31,10 @@ class _RecoverPassState extends State<RecoverPass> {
             color: ColorsViews.bar_color_able,
           ),
           onPressed: () {
-            Navigator.pushNamed(context, '/login');
+            Navigator.pop(context);
           },
         ),
-        title: const Text('Iniciar sesion'),
+        title: const Text('Recuperar contraseña'),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(top: 4, bottom: 4, right: 15),
@@ -48,7 +48,7 @@ class _RecoverPassState extends State<RecoverPass> {
       body: Column(
         children: <Widget>[
           const Padding(
-            padding: EdgeInsets.all(18.0),
+            padding: EdgeInsets.only(top:18.0, bottom:18.0, right: 10.0,),
             child: Text(
               'Ingresa tu email para restablecer tu contraseña.',
               style: TextStyle(
@@ -67,10 +67,10 @@ class _RecoverPassState extends State<RecoverPass> {
                     top: 10,
                     bottom: 10,
                     left: 0,
-                    right: 250,
+                    right: 230,
                   ),
                   child: Text(
-                    'Correo electronico',
+                    'Correo electrónico',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -78,7 +78,7 @@ class _RecoverPassState extends State<RecoverPass> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                  padding: const EdgeInsets.only(left: 25.0, right: 25.0),
                   child: TextFormField(
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -100,7 +100,7 @@ class _RecoverPassState extends State<RecoverPass> {
                 ),
                 const Padding(
                   padding:
-                      EdgeInsets.only(top: 10, left: 30, right: 25, bottom: 15),
+                      EdgeInsets.only(top: 10, left: 40, right: 35, bottom: 15),
                   child: Text(
                     'Ingrese su correo electronico registrado y le enviaremos un correo electronico con un enlace que contiene un enlace para restablecer su contraseña.',
                     style: TextStyle(
