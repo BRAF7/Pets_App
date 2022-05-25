@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvp_all/Home/ui/screen/main.dart';
 import 'package:mvp_all/Login/ui/screen/login.dart';
 import 'package:mvp_all/Login/ui/screen/login_panel.dart';
 import 'package:mvp_all/OnBoardingPage/ui/screen/on_boarding.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => OnBoarding(),
+        '/home': (context) => HomeVetApp(),
         '/login': (context) => const Login(),
         '/login_panel': (context) => const LoginPanel(),
         '/register_page': (context) => const RegisterPage(),
