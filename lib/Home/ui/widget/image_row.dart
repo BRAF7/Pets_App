@@ -9,13 +9,24 @@ class ImageRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
+        Card(
+          // Con esta propiedad modificamos la forma de nuestro card
+          // Aqui utilizo RoundedRectangleBorder para proporcionarle esquinas circulares al Card
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+
+          // Con esta propiedad agregamos margen a nuestro Card
+          // El margen es la separación entre widgets o entre los bordes del widget padre e hijo
+          margin: EdgeInsets.all(5),
+
+          // Con esta propiedad agregamos elevación a nuestro card
+          // La sombra que tiene el Card aumentará
+          elevation: 10,
+          child: Padding(
             padding: const EdgeInsets.only(top: 40.0),
             child: Container(
-              padding: const EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey, width: 2.5),
-              ),
+              padding: const EdgeInsets.all(5.0),
+            
               child: Row(
                 children: [
                   Padding(
@@ -100,13 +111,23 @@ class ImageRow extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 40.0),
+        ),
+        Card(
+          // Con esta propiedad modificamos la forma de nuestro card
+          // Aqui utilizo RoundedRectangleBorder para proporcionarle esquinas circulares al Card
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+
+          // Con esta propiedad agregamos margen a nuestro Card
+          // El margen es la separación entre widgets o entre los bordes del widget padre e hijo
+          margin: EdgeInsets.all(5),
+
+          // Con esta propiedad agregamos elevación a nuestro card
+          // La sombra que tiene el Card aumentará
+          elevation: 10,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 40.0, bottom: 20),
             child: Container(
-              padding: const EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey, width: 2.5),
-              ),
               child: Row(
                 children: [
                   Padding(
@@ -191,6 +212,7 @@ class ImageRow extends StatelessWidget {
               ),
             ),
           ),
+        ),
       ],
     );
   }

@@ -36,8 +36,6 @@ class MyApp extends StatelessWidget {
         '/register_page': (context) => const RegisterPage(),
         '/recover_pass': (context) => const RecoverPass(),
       },
-      // home: SplashView(),
-      // home: OnBoarding(),
     );
   }
 }

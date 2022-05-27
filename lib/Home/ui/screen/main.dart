@@ -19,26 +19,37 @@ class _HomeVetAppState extends State<HomeVetApp> {
   final List<Widget> _pages = <Widget>[
     Container(),
     ListView(
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(bottom: 40),
-            child: Carousel(),
-          ),
-          Container(
-            padding: const EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey, width: 2.5),
-            ),
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(bottom: 40),
+          child: Carousel(),
+        ),
+        Card(
+          // Con esta propiedad modificamos la forma de nuestro card
+          // Aqui utilizo RoundedRectangleBorder para proporcionarle esquinas circulares al Card
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+
+          // Con esta propiedad agregamos margen a nuestro Card
+          // El margen es la separación entre widgets o entre los bordes del widget padre e hijo
+          margin: EdgeInsets.all(15),
+
+          // Con esta propiedad agregamos elevación a nuestro card
+          // La sombra que tiene el Card aumentará
+          elevation: 10,
+
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
             child: Row(
               children: circular_events(),
             ),
           ),
-          ImageRow()
-        ],
-      ),
+        ),
+        ImageRow()
+      ],
+    ),
     Container(),
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -90,14 +101,19 @@ List<Padding> circular_events() {
   List<Padding> circular_event = List<Padding>.generate(
     5,
     (index) => Padding(
-      padding: const EdgeInsets.only(left: 25, right: 30),
+      padding: const EdgeInsets.only(left: 25),
       child: InkWell(
         onTap: () {},
         child: Container(
-          width: 20,
-          height: 20,
-          decoration:
-              const BoxDecoration(color: Colors.black, shape: BoxShape.circle),
+          width: 80.0,
+          height: 80.0,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: NetworkImage("https://i.imgur.com/BoN9kdC.png"),
+            ),
+          ),
         ),
       ),
     ),
