@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mvp_all/Home/ui/screen/main.dart';
 import 'package:mvp_all/Login/ui/screen/login.dart';
@@ -6,11 +7,11 @@ import 'package:mvp_all/OnBoardingPage/ui/screen/on_boarding.dart';
 import 'package:mvp_all/RecuperarContrasenna/ui/screen/recover_pass.dart';
 import 'package:mvp_all/Register/ui/screen/register.dart';
 import 'package:mvp_all/colors/colors_views.dart';
-import 'package:mvp_all/pages/progressView.dart';
-import 'package:mvp_all/splash/splas_view.dart';
+
 
 void main() {
   runApp(const MyApp());
+  Firebase.initializeApp();
 }
 
 class MyApp extends StatelessWidget {

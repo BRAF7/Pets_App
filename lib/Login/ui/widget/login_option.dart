@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../models/authentication.dart';
 
 class LoginOption extends StatelessWidget {
   const LoginOption({Key? key}) : super(key: key);
@@ -16,7 +19,14 @@ class LoginOption extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                        User? user = await Authenticator.iniciarSesion(context: context);
+                        print(user?.isAnonymous);
+                        if(!user!.isAnonymous){
+                          Navigator.pushNamed(context, '/home');
+                        }
+                        
+                      },
                     style: ElevatedButton.styleFrom(
                       primary: const Color(0xFF3169f5),
                       shape: RoundedRectangleBorder(

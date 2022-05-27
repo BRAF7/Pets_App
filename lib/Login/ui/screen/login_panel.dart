@@ -1,10 +1,12 @@
-import 'package:flutter/gestures.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mvp_all/Login/ui/models/authentication.dart';
 import 'package:mvp_all/colors/colors_views.dart';
 
 import '../widget/boton_ingresar.dart';
 import '../widget/contrasenna_olvidada.dart';
 import '../widget/register.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPanel extends StatefulWidget {
   const LoginPanel({Key? key}) : super(key: key);
@@ -15,6 +17,7 @@ class LoginPanel extends StatefulWidget {
 
 class _LoginPanelState extends State<LoginPanel> {
   final _formKey = GlobalKey<FormState>();
+  final _auth = FirebaseAuth.instance;
   bool _passwordVisible = false;
   @override
   void initState() {
@@ -24,6 +27,8 @@ class _LoginPanelState extends State<LoginPanel> {
   @override
   Widget build(BuildContext context) {
     bool _value = false;
+    String password = '';
+    String email = '';
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -52,7 +57,7 @@ class _LoginPanelState extends State<LoginPanel> {
       body: Column(
         children: <Widget>[
           const Padding(
-            padding: EdgeInsets.only(top:18.0, right:70, bottom:18),
+            padding: EdgeInsets.only(top: 18.0, right: 70, bottom: 18),
             child: Text(
               'Inicia sesión en tu cuenta para continuar',
               style: TextStyle(
@@ -84,6 +89,10 @@ class _LoginPanelState extends State<LoginPanel> {
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0, right: 25.0),
                   child: TextFormField(
+                    onChanged: (value) {
+                      email = value;
+                      //Do something with the user input.
+                    },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
@@ -148,7 +157,11 @@ class _LoginPanelState extends State<LoginPanel> {
                           });
                         },
                       ),
+                      
                     ),
+                    onChanged: (value) {
+                      password = value;
+                    },
                   ),
                 ),
                 Padding(
@@ -159,9 +172,53 @@ class _LoginPanelState extends State<LoginPanel> {
                     ],
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 185),
-                  child: ButtonIngresar(),
+                Padding(
+                  padding: const EdgeInsets.only(top: 185),
+                  child: SizedBox(
+                    height: 50,
+                    width: 350,
+                    child: SizedBox(
+      height: 50,
+      width: 350,
+      child: OutlinedButton(
+        onPressed: () async {
+          try {
+            
+            final user = await _auth.signInWithEmailAndPassword(
+                email: email, password: password);
+                
+            if (user != null) {
+              Navigator.pushNamed(context, '/home');
+            }
+          } catch (e) {
+            print(e);
+          }
+        },
+        child: const Text('Ingresar',
+            style:
+                TextStyle(color: ColorsViews.background_color, fontSize: 18)),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
+            return ColorsViews.buttonColor;
+          }),
+          overlayColor: MaterialStateProperty.resolveWith<Color>(
+            (states) {
+              if (states.contains(MaterialState.pressed)) {
+                return Colors.grey;
+              }
+              return Colors.transparent;
+            },
+          ),
+          shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
+            (_) {
+              return RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25));
+            },
+          ),
+        ),
+      ),
+    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 55, top: 20),

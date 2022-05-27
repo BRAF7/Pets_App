@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mvp_all/colors/colors_views.dart';
@@ -11,8 +12,12 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
+  final _auth = FirebaseAuth.instance;
   bool _passwordVisible = false;
   bool _value = false;
+  late String email;
+  late String password;
+  late String name;
   @override
   void initState() {
     _passwordVisible = false;
@@ -95,6 +100,10 @@ class _RegisterPageState extends State<RegisterPage> {
                       }
                       return null;
                     },
+                    onChanged: (value) {
+                      name = value;
+                      //Do something with the user input.
+                    },
                   ),
                 ),
                 const Padding(
@@ -125,6 +134,10 @@ class _RegisterPageState extends State<RegisterPage> {
                       hintText: "Direccion de correo",
                       fillColor: Colors.white70,
                     ),
+                    onChanged: (value) {
+                      email = value;
+                      //Do something with the user input.
+                    },
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
@@ -150,6 +163,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0, right: 25.0),
                   child: TextFormField(
+                    onChanged: (value) {
+                      password = value;
+                      //Do something with the user input.
+                    },
                     keyboardType: TextInputType.text,
                     obscureText:
                         !_passwordVisible, //This will obscure text dynamically
@@ -217,7 +234,18 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 50,
                     width: 350,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        try {
+                          final newUser =
+                              await _auth.createUserWithEmailAndPassword(
+                                  email: email, password: password);
+                          if (newUser != null) {
+                            Navigator.pushNamed(context, '/home');
+                          }
+                        } catch (e) {
+                          print(e);
+                        }
+                      },
                       child: const Text('Crear cuenta',
                           style: TextStyle(
                               color: ColorsViews.background_color,

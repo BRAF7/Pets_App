@@ -1,11 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../colors/colors_views.dart';
 
 class ButtonIngresar extends StatelessWidget {
-  const ButtonIngresar({
-    Key? key,
-  }) : super(key: key);
+
+  ButtonIngresar(this.email, this.password, {Key? key}) : super(key: key);
+  final _auth = FirebaseAuth.instance;
+  final String email;
+  final String password;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +17,24 @@ class ButtonIngresar extends StatelessWidget {
       height: 50,
       width: 350,
       child: OutlinedButton(
-        onPressed: () {},
+        onPressed: () async {
+          try {
+            
+            final user = await _auth.signInWithEmailAndPassword(
+                email: email, password: password);
+                
+            if (user != null) {
+              Navigator.pushNamed(context, 'home_screen');
+            }
+          } catch (e) {
+            print(e);
+          }
+        },
         child: const Text('Ingresar',
-            style: TextStyle(
-                color: ColorsViews.background_color,
-                fontSize: 18)),
+            style:
+                TextStyle(color: ColorsViews.background_color, fontSize: 18)),
         style: ButtonStyle(
-          backgroundColor:
-              MaterialStateProperty.resolveWith<Color>((states) {
+          backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
             return ColorsViews.buttonColor;
           }),
           overlayColor: MaterialStateProperty.resolveWith<Color>(
@@ -31,8 +45,7 @@ class ButtonIngresar extends StatelessWidget {
               return Colors.transparent;
             },
           ),
-          shape:
-              MaterialStateProperty.resolveWith<OutlinedBorder>(
+          shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
             (_) {
               return RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25));

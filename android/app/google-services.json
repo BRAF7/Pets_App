@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "581770717668",
+    "project_id": "vetapp-35407",
+    "storage_bucket": "vetapp-35407.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581770717668:android:e67f734f8bc71377ccfff1",
+        "android_client_info": {
+          "package_name": "com.example.mvp_all"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581770717668-k2ulnl7ika7fe3k50hqnh52eui5r1at5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mvp_all",
+            "certificate_hash": "760e360226c638b68cb07b580eb703e9a5092430"
+          }
+        },
+        {
+          "client_id": "581770717668-gdhjh1te05hu228rr92j43i4lcau01pk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEJNFxHmBlow9u1pJ_B9DscPChUe143BA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581770717668-gdhjh1te05hu228rr92j43i4lcau01pk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
