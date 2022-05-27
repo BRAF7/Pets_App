@@ -1,7 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/gestures.dart';
+
+
 import 'package:flutter/material.dart';
+import 'package:mvp_all/Register/ui/widget/app_bar.dart';
 import 'package:mvp_all/colors/colors_views.dart';
+
+import '../widget/sign_in_with_email.dart';
+import '../widget/terms_and_conditions.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -28,28 +33,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: ColorsViews.text_header,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: ColorsViews.bar_color_able,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: const Text('Regístrate'),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top: 4, bottom: 4, right: 15),
-            child: Image.asset(
-              'assets/image/splash.png',
-              color: Colors.white,
-            ),
-          )
-        ],
-      ),
+      appBar: const AppBarRegister(),
       body: Column(
         children: <Widget>[
           const Padding(
@@ -130,7 +114,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       filled: true,
                       hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 161, 161, 161)),
+                          const TextStyle(color: Color.fromARGB(255, 161, 161, 161)),
                       hintText: "Direccion de correo",
                       fillColor: Colors.white70,
                     ),
@@ -187,7 +171,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           _passwordVisible
                               ? Icons.visibility
                               : Icons.visibility_off,
-                          color: Color.fromARGB(255, 179, 179, 179),
+                          color: const Color.fromARGB(255, 179, 179, 179),
                         ),
                         onPressed: () {
                           // Update the state i.e. toogle the state of passwordVisible variable
@@ -289,69 +273,6 @@ class _RegisterPageState extends State<RegisterPage> {
           )
         ],
       ),
-    );
-  }
-}
-
-class iniciar_sesion extends StatelessWidget {
-  const iniciar_sesion({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.start,
-      text: TextSpan(
-        children: <InlineSpan>[
-          const TextSpan(
-            text: '¿Ya tienes una cuenta? ',
-            style: TextStyle(color: ColorsViews.text_subtitle, fontSize: 18),
-          ),
-          TextSpan(
-            text: ' Iniciar sesión.',
-            style: const TextStyle(
-                color: ColorsViews.bar_color_able, fontSize: 18),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                Navigator.pushNamed(context, '/login_panel');
-              },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class terminos_y_condiciones extends StatelessWidget {
-  const terminos_y_condiciones({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.start,
-      text: TextSpan(children: <InlineSpan>[
-        const TextSpan(
-          text: 'Al registrarme, acepto ',
-          style: TextStyle(color: ColorsViews.text_subtitle),
-        ),
-        TextSpan(
-          text: ' los terminos y condiciones',
-          style: TextStyle(color: ColorsViews.bar_color_able),
-          recognizer: TapGestureRecognizer()..onTap = () {},
-        ),
-        const TextSpan(
-          text: ' y la ',
-          style: TextStyle(color: ColorsViews.text_subtitle),
-        ),
-        TextSpan(
-          text: ' politica de privacidad.',
-          style: TextStyle(color: ColorsViews.bar_color_able),
-          recognizer: TapGestureRecognizer()..onTap = () {},
-        ),
-      ]),
     );
   }
 }

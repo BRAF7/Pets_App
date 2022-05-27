@@ -138,17 +138,6 @@ class LoginOption extends StatelessWidget {
           ]),
         ),
 
-        // TextButton(
-        //   style: TextButton.styleFrom(primary: Colors.green[400]),
-        //   onPressed: () {},
-        //   child: const Text(
-        //     'Entrar como vendedor',
-        //     style: TextStyle(
-        //       fontSize: 13,
-        //     ),
-        //   ),
-        // ),
-
         Padding(
           padding: const EdgeInsets.only(left: 100.0, top: 50),
           child: Row(

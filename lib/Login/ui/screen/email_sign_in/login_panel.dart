@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:mvp_all/Login/ui/models/authentication.dart';
 import 'package:mvp_all/colors/colors_views.dart';
 
-import '../widget/boton_ingresar.dart';
-import '../widget/contrasenna_olvidada.dart';
-import '../widget/register.dart';
+import '../../widget/boton_ingresar.dart';
+import '../../widget/contrasenna_olvidada.dart';
+import '../../widget/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPanel extends StatefulWidget {

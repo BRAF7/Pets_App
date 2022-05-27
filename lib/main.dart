@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mvp_all/Home/ui/screen/main.dart';
 import 'package:mvp_all/Login/ui/screen/login.dart';
-import 'package:mvp_all/Login/ui/screen/login_panel.dart';
+import 'package:mvp_all/Login/ui/screen/email_sign_in/login_panel.dart';
 import 'package:mvp_all/OnBoardingPage/ui/screen/on_boarding.dart';
 import 'package:mvp_all/RecuperarContrasenna/ui/screen/recover_pass.dart';
 import 'package:mvp_all/Register/ui/screen/register.dart';

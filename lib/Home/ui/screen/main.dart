@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mvp_all/Home/ui/widget/image_description.dart';
 import 'package:mvp_all/Home/ui/widget/image_row.dart';
 
 import '../../../colors/colors_views.dart';
@@ -15,7 +14,7 @@ class HomeVetApp extends StatefulWidget {
 
 class _HomeVetAppState extends State<HomeVetApp> {
   int pageIndex = 0;
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   final List<Widget> _pages = <Widget>[
     Container(),
